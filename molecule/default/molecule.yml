@@ -1,0 +1,36 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    privileged: true
+    volume_mounts:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    pre_build_image: true
+scenario:
+  test_sequence:
+    - dependency
+    - lint
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    - verify
+    - side_effect
+    - verify
+    - cleanup
+    - destroy
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      instance:
+        test_url: http://localhost:3333
+verifier:
+  name: testinfra
