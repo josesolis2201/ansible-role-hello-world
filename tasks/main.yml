@@ -24,6 +24,10 @@
   loop:
     - "{{ _hello_world_pip_packages }}"
 
+- name:
+  find:
+    paths: "{{ lookup('env', 'PWD') }}"
+
 - name: Docker build
   docker_image:
     build:
