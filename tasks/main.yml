@@ -27,6 +27,11 @@
 - name:
   find:
     paths: "{{ lookup('env', 'PWD') }}"
+  register: output
+
+- name: Output
+  debug:
+    var: output
 
 - name: Docker build
   docker_image:
