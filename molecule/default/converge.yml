@@ -10,4 +10,4 @@
       when: (ansible_os_family | lower) == 'debian'
 
   roles:
-    - role: carlosgo13.hello_world
+    - role: wpnops.hello_world

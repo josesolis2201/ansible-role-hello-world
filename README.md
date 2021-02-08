@@ -1,9 +1,9 @@
-# carlosgo13.hello-world
+# wpnops.hello_world
 
-[![Build Status](https://github.com/carlosgo13/ansible-role-hello-world/workflows/CI/badge.svg)](https://github.com/carlosgo13/ansible-role-hello-world/actions)
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-ansible-role-hello-world.vim-blue.svg)](https://galaxy.ansible.com/carlosgo13/hello-world/)
+[![Build Status](https://github.com/wpnops/ansible-role-hello-world/workflows/CI/badge.svg)](https://github.com/wpnops/ansible-role-hello-world/actions)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-wpnops.hello_world.vim-blue.svg)](https://galaxy.ansible.com/wpnops/hello_world/)
 
-An [ansible role](https://galaxy.ansible.com/carlosgo13/hello-world) to install and configure hello-world
+An [ansible role](https://galaxy.ansible.com/wpnops/hello_world) to install and configure hello-world
 
 ## Role Variables
 
@@ -17,7 +17,7 @@ By default this role does not depend on any external roles. If any such dependen
 
 - hosts: servers
   roles:
-     - role: carlosgo13.hello-world
+     - role: wpnops.hello-world
        hello_world_package_state: latest
 
 ## Testing

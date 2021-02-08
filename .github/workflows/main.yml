@@ -11,7 +11,7 @@ on:
 
 defaults:
   run:
-    working-directory: 'carlosgo13.hello_world'
+    working-directory: 'wpnops.hello_world'
 
 jobs:
 
@@ -22,7 +22,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'carlosgo13.hello_world'
+          path: 'wpnops.hello_world'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -49,7 +49,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'carlosgo13.hello_world'
+          path: 'wpnops.hello_world'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
