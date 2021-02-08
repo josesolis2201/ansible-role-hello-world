@@ -1,12 +1,5 @@
 ---
 - name: include variable overrides
-  set_fact:
-    _hello_world_pip_packages:
-      - docker-py
-    _hello_world_docker_tag: "0.1"
-    _hello_world_container_name: "helloworld"
-    _hello_world_docker_image_name: "helloworld"
-    _hello_world_container_port: 3333
   vars:
     overrides:
       - "{{ ansible_distribution | lower }}-{{ ansible_distribution_release | lower }}"
@@ -17,36 +10,6 @@
   tags:
     - always
 
-- name: install hello-world packages
-  become: yes
-  pip:
-    name: "{{ item }}"
-  loop:
-    - "{{ _hello_world_pip_packages }}"
-
-- name:
-  find:
-    paths: "{{ lookup('env', 'PWD') }}"
-  register: output
-
-- name: Output
+- name: Print hello-world
   debug:
-    var: output
-
-- name: Docker build
-  docker_image:
-    build:
-      path: "{{ lookup('env', 'PWD') }}"
-      pull: no
-    name: "{{ _hello_world_container_name }}"
-    source: build
-    tag: "{{ _hello_world_docker_tag }}"
-
-- name: Re-create docker container
-  docker_container:
-    name: "{{ _hello_world_container_name }}"
-    image: "{{ _hello_world_docker_image_name }}:{{ _hello_world_docker_tag }}"
-    state: started
-    recreate: yes
-    published_ports:
-      - "{{ _hello_world_container_port | int }}:{{ _hello_world_container_port | int }}"
+    msg: "Hello world"

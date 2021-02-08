@@ -14,7 +14,7 @@ galaxy_info:
     - name: Debian
       versions:
         - stretch
-  galaxy_tags: ['hello-world']
+  galaxy_tags: ['helloworld']
 
 dependencies:
   - nephelaiio.plugins
