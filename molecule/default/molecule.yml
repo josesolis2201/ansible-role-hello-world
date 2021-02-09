@@ -15,7 +15,11 @@ scenario:
   test_sequence:
     - dependency
     - lint
+    - destroy
+    - syntax
+    - create
     - converge
+    - destroy
 provisioner:
   name: ansible
 verifier:
